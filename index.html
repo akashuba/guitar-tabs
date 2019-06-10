@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GH</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="350" height="300"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas')
+      var ctx = canvas.getContext('2d')
+      // Horizontal strings
+      const stings = [
+        [10, 20, 300, 1],
+        [10, 50, 300, 2],
+        [10, 80, 300, 2.2],
+        [10, 110, 300, 2.5],
+        [10, 140, 300, 2.7],
+        [10, 170, 300, 3]
+      ]
+      // Vertical fret
+      const fret = [
+        [20, 10, 2, 170],
+        [70, 10, 2, 170],
+        [120, 10, 2, 170],
+        [170, 10, 2, 170],
+        [220, 10, 2, 170],
+        [270, 10, 2, 170]
+      ]
+      const minor = [
+        [95, 20, 6, 0, 2 * Math.PI],
+        [195, 20, 6, 0, 2 * Math.PI],
+        [245, 20, 6, 0, 2 * Math.PI],
+        [245, 50, 6, 0, 2 * Math.PI],
+        [145, 50, 6, 0, 2 * Math.PI],
+        [95, 50, 6, 0, 2 * Math.PI],
+        [45, 80, 6, 0, 2 * Math.PI],
+        [95, 80, 6, 0, 2 * Math.PI],
+        [195, 80, 6, 0, 2 * Math.PI],
+        [95, 110, 6, 0, 2 * Math.PI],
+        [195, 110, 6, 0, 2 * Math.PI],
+        [95, 140, 6, 0, 2 * Math.PI],
+        [195, 140, 6, 0, 2 * Math.PI],
+        [245, 140, 6, 0, 2 * Math.PI],
+        [95, 170, 6, 0, 2 * Math.PI],
+        [195, 170, 6, 0, 2 * Math.PI],
+        [245, 170, 6, 0, 2 * Math.PI]
+      ]
+
+      function drawingRect(arr) {
+        arr.forEach(item => {
+          ctx.fillRect(...item)
+        })
+      }
+
+      ctx.fillStyle = '#30415d'
+      drawingRect(stings)
+
+      ctx.fillStyle = '#c38d39'
+      drawingRect(fret)
+
+      ctx.fillStyle = '#941f15'
+      ctx.strokeStyle = '#941f15'
+      minor.forEach(dot => {
+        ctx.beginPath()
+        ctx.arc(...dot)
+        ctx.fill()
+        ctx.stroke()
+      })
+    </script>
+  </body>
+</html>
